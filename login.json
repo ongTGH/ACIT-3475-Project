@@ -1,0 +1,16 @@
+[
+    {
+        "name": "teemo",
+        "password": "sha256$K8RfaTGMxl3Epoyr$53edc2fb4e4ed48cc8761a6c0cc1a51d577aa1a459b3a21141ed7f03cdae5e23",
+        "email": "teemo@riot.com",
+        "question": "What is your favourite food?",
+        "answer": "mushroom"
+    },
+    {
+        "name": "adadasd",
+        "password": "sha256$pvxpd0XIYuQOSPKY$651b69c9c249c759917e87bda4193fd05c60d2819d5ccc2e02c20b357f6fbd5c",
+        "email": "asdsdad@gmail.com",
+        "question": "What was your childhood nickname?",
+        "answer": "fef"
+    }
+]

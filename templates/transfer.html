@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block head %}<link rel="stylesheet" href="../static/transfer.css" /> {% endblock%}
+{% block title %}ExpendAware - Transfer{% endblock %}
+{% block h1 %}<h1>ExpendAware</h1>{% endblock %}
+{% block content %}
+<h2> Budget Transfer </h2>
+
+<form method="POST" id="transfer-container">
+    <label for="budget-from">From</label>
+    <select id="budget-from" name="budget-from">
+        <option value="defaultOption" >Select an option</option>
+        {% for budget in budgets %}
+            <option value="{{ budget }}">
+                {{ budget.category }} - {{ budget.name }} : ${{ budget.amount }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <label for="budget-to">To</label>
+    <select id="budget-to" name="budget-to" disabled>
+        <option value="defaultOption">Select an option</option>
+        {% for budget in budgets %}
+            <option value="{{ budget }}">
+                {{ budget.category }} - {{ budget.name }} : ${{ budget.amount }}
+            </option>
+        {% endfor %}
+    </select>
+    
+    <label for="transfer-amount">Amount</label>
+    <input
+        type="number"
+        id="transfer-amount"
+        placeholder="Transfer Amount"
+        name="transfer-amount"
+        step="0.01"
+        min='0'
+        class="number"
+        disabled>
+    </input>
+    
+    <input  
+        type="submit" 
+        id="transfer-btn" 
+        class='submit-button'>
+    </input>
+    </div>
+</form>
+
+<form id="summary-result">
+    <div id="summary-first-row">
+        <h2>Result</h2>
+    </div>
+    <div id="category-sc">Category</div>
+    <div id="budget-sc">Budget</div>
+    <div id="amount-sc">Amount</div>
+    <div id="category-sf"></div>
+    <div id="budget-sf"></div>
+    <div id="amount-sf"></div>
+    <div id="category-st"></div>
+    <div id="budget-st"></div>
+    <div id="amount-st"></div>
+</form>
+
+
+
+
+<script src="/static/javascript/transfer.js"></script>
+{% endblock %}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/login.css" />
+    <title>Login</title>
+</head>
+
+<body>
+    <div id="outline">
+        <img id="login-logo" src="../static/images/logo.png" width="220" height="200"/>
+
+        <div>
+            <button id="login-tab" class="login-tab active">Login</button>
+            <button id="reg-tab" class="login-tab">Register</button>
+        </div>
+
+        <form method="POST" action=" /login " class="info-to-fill" id="login-form">
+            <h1 class="info-title">Login</h1>
+
+            <label for="login-email">Email Address</label>
+            <input type="email" placeholder="Email Address" id="login-email" name="login-email" required/>
+
+            <label for="login-pwd">Password</label>
+            <input type="password" placeholder="Password" id="login-pwd" name="login-pwd" required/>
+
+            <div>
+                <ul id="flash-messages" class="show">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </ul>
+            </div>
+            
+            <label for="rmb-me">
+                <input type="checkbox" id="rmb-me" name="rmb-me"> 
+                Remember Me
+            </label>
+            <button type="submit" id="login-btn">Login</button>
+            <span id="login-fgt-link">Forgot Password?</span>
+        </form>
+        
+        
+        <form method="POST" action="{{ url_for('login') }}" class="info-to-fill" id="reg-form">
+            <h1 class="info-title">Register</h1>
+
+            <label for="reg-email">Email Address</label>
+            <input type="email" placeholder="Email Address" id="reg-email" name="reg-email" required/>
+            
+            <label for="reg-name">Name</label>
+            <input type="text" placeholder="Name" id="reg-name" name="reg-name" required/>
+            
+            <label for="reg-pwd1">Password</label>
+            <input type="password" placeholder="Password" id="reg-pwd1" name="reg-pwd1" required/>
+            
+            <label for="reg-pwd2">Confirm Password</label>
+            <input type="password" placeholder="Confirm Password" id="reg-pwd2" name="reg-pwd2" required/>
+            
+            <label for="reg-security-q">Pick one question</label>
+            <select id="reg-security-q" name="reg-security-q">
+                <option>What was your childhood nickname?</option>
+                <option>What is your favourite food?</option>
+                <option>When was your first penta kill?</option>
+                <option>In what city or town was your first job?</option>
+                <option>What was the name of your first stuffed animal?</option>
+                <option>What was your childhood nickname?</option>
+            </select>
+
+            <label for="reg-security-a">Answer</label>
+            <input id="reg-security-a" name="reg-security-a" required/>
+
+            <button type="submit" id="reg-btn">Register</button>
+            
+            <div id="reg-overlay">
+                <div id="reg-alert-box">
+                    <span id="reg-alert-message"></span>
+                    <button id="reg-alert-exit-btn">x</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div id="fgt-overlay">
+        <form method="POST" id="fgt-box">
+            <div id="fgt-flex">
+                <div id="fgt-email-box">
+                    <label for="fgt-email">Your Email</label>
+                    <input type="email" id="fgt-email" placeholder="email" name="fgt-email">
+                    <div id="fgt-email-error"></div>
+                </div>
+
+                <div id="fgt-security-box">
+                    <label for="fgt-security-a" id="fgt-security-q"></label>
+                    <input type="text" id="fgt-security-a" placeholder="answer" name="fgt-security-a">
+                    <div id="fgt-security-error"></div>
+                </div>
+
+                <div id="fgt-pwd-box">
+                    <label for="fgt-pwd1">New Password</label>
+                    <input type="password" id="fgt-pwd1" name="fgt-pwd1" placeholder="Password">
+
+                    <label for="fgt-pwd2">Confirm new Password</label>
+                    <input type="password" id="fgt-pwd2" placeholder="Confirm Password">
+
+                    <div id="fgt-pwd-error"></div>
+                </div>
+                
+                <div id="fgt-btn-box">
+                    <button type="submit" id="fgt-btn">Submit</button>
+                    <button id="fgt-exit-btn" onclick="refreshPage()">Exit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    
+    <script src="/static/javascript/login.js"></script>
+</body>

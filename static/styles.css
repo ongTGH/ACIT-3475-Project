@@ -1,0 +1,1634 @@
+@font-face {
+  font-family:Gravitica;
+  src: url(gravitica.otf) format(truetype);
+}
+
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+
+html::-webkit-scrollbar {
+    display: none;
+  }
+
+body {
+    background-color: #e1F5ff;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+h2 {
+    margin-top: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    text-align: left;
+    color: black;
+    font-family:Gravitica;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  font-family:Gravitica;
+}
+
+
+
+/* Header Grid CSS -------------
+----------------------------------------*/
+header {
+    background-color: #2C99ED;
+    color: rgb(255, 255, 255);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+        "menu title account";
+    width: 100%;
+    /* padding-bottom: 25px; */
+}
+.h1 {
+    grid-area: title;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8vw;
+    color: black;
+    font-family:Gravitica;
+}
+#menu-btn {
+    grid-area: menu;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    width: 40px;
+    margin: 8px;
+    height: 30%;
+}
+#home-btn {
+    margin-left: 8%;
+}
+#account-btn {
+    grid-area: account;
+    display: flex;
+    justify-content: flex-end;
+    margin: 8px;
+}
+
+/* End of Header Grid CSS ---------------
+--------------------------------------------*/
+
+
+
+/* Home/Index Page ------------------------ 
+----------------------------------------*/
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.text {
+    width: calc(120%);
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    font-size: 16px;
+}
+
+.number {
+    width: calc(120%);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    font-size: 16px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+#expense-container select {
+    width: 100%;
+    margin-right: 10px;
+}
+button {
+    background-color: #65647C;
+    background-color:rgb(78, 126, 82);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+/* button:hover {
+    background-color: #8EA7E9;
+} */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    width: 100%;
+    /* max-width: 600px; */
+}
+.transaction-list {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+li button {
+    background-color: #f44336;
+    font-size: 14px;
+    padding: 8px 12px;
+    margin-left: 10px;
+}
+
+/*
+li button:hover {
+    background-color: #e53935;
+} */
+#budget-container, #expense-container, #category-container {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 18px;
+    margin-bottom: 30px;
+    width: calc(33.333% - 20px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-right: auto;
+    margin-left: auto;
+}
+#budget-container {
+    background-color: rgb(172, 177, 214);
+    background-color:rgb(150, 162, 227);
+}
+#expense-container {
+  background-color:rgb(189, 205, 214);
+  background-color:rgb(135, 188, 219);
+}
+#category-container {
+  background-color: #93bfcf;
+  background-color: #3da1c6;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    padding: 30px;
+}
+
+.hidden-lists {
+    display: none;
+}
+
+.alert-primary {
+    left: 25%;
+    right: 25%;
+    bottom: 20%;
+}
+
+
+/* End of Home/Index Page ---------------- 
+----------------------------------------*/
+
+
+/* New Home/Index design by Bon -----
+-----------------------------------*/
+
+  h1 {
+    text-align: center;
+    font-size: 40px;
+    color: white;
+  }
+
+  
+  #account-icon {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    margin-left: 85%;
+    margin-top: 10px;
+    padding-top: 0px;
+  }
+  
+
+  
+  #home-icon {
+    position: absolute;
+    padding-top:30px;
+    top: 20px;
+    left: 12px;
+  } */
+
+  #subheadings {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    right: 10px;
+    font-size: 20px;
+    margin-right: 0px;
+    color:#333;
+  }
+  
+
+  .home-icon-row {
+    margin-top: 25px;
+    width: 93%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  button h3 {
+    line-height: 1.6em;
+  }
+  
+  #add-budget {
+    width: 32%;
+    background:rgb(172, 177, 214) url(images/add-budget-icon.png) no-repeat 8px center;
+    background:rgb(123, 133, 207) url(images/add-budget-icon.png) no-repeat 50% 30%;
+    background-size: auto;
+    background-color: white;
+    background-size: 40%;
+    text-align: center;
+    color: black;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  #add-expense {
+    width: 32%;
+    background:rgb(189, 205, 214) url(images/add-expense-icon.png) no-repeat 8px center;
+    background:rgb(135, 188, 219) url(images/add-expense-icon.png) no-repeat 50% 30%;
+    background-color: white;
+    background-size: 40%;
+    text-align: right;
+    color: black;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  #add-category {
+    width: 32%;
+    background: #93bfcf url(images/add-category-icon.png) no-repeat 8px center;
+    background: #3da1c6 url(images/add-category-icon.png) no-repeat 50% 30%;
+    background-color: white;
+    background-size: 40%;
+    text-align: right;
+    color: black;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .subtitle-icons:hover {
+    background-color: #2EE59D;
+    transform: translateY(-10px);
+  }
+
+  .subtitle-icons {
+    height: 32vw;
+  }
+  
+  .subtitle-icons h3 {
+    display: flex;
+  }
+  
+  a.logout-link {
+    margin-right: 15px;  
+    margin-top: 5px;
+  }
+  
+  #total {
+    margin-top: 30px;
+  }
+  
+  .summary {
+    height: 40px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  .view-section {
+    background-color: white;
+    border-radius: 20px;
+    width: 90%;
+    margin-top: 20px;
+  }
+  
+  .view-section h3 {
+    font-size: 25px;
+    text-align: center;
+    font-weight: bolder;
+  }
+
+  .view-section h5 {
+    margin-left: 5%;
+  }
+  
+  hr {
+    width: 95%;
+    border: 1px solid black;
+    margin-left: 2.5%;
+  }
+  
+  .first-h4 {
+    margin-top: 20px;
+    margin-left: 25px;
+    width: 80px;
+    height: 35px;
+    text-align: center;
+    font-size: 28px;
+    border-radius: 4px;
+    font-family:Gravitica;
+    font-weight: bolder;
+  }
+
+
+  #total-heading {
+    color: black;
+  }
+  
+  .expenses-section {
+    /* background-color: #BAF2E9; */
+    /* background-color: #f4ffa5; */
+    width: 90%;
+    border: 1px grey solid;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    margin-left: 5%;
+    margin-top: 20px;
+  }
+
+  #totals h4 {
+    font-size: 17px;
+    color: #0f7b45;
+  }
+  
+  #transaction {
+    margin-top: 50px;
+    margin-left: 5.5%;
+    /* font-family: 'Montserrat', sans-serif; */
+    color: black;
+    border-radius: 0px;
+    width: 220px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 4px;
+  }
+
+  #transaction > h4 {
+    color: #000000;
+    font-family:Gravitica;
+    font-size: 27px;
+  }
+  
+  .transaction-section {
+    /* background-color: #d4f3fa; */
+    /* background-color: #f4ffa5; */
+    width: 95%;
+    /* margin-left: 2%; */
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+
+  #transaction-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    height: 100%;
+    padding: 2%;
+    text-align: center;
+    border: 1px grey solid;
+    border-radius: 3px;
+    margin-left: 2.5%;
+    margin-top: 20px;
+}
+
+#latest-transaction-heading {
+  /* background-color: rgb(145, 211, 158); */
+  background-color: rgb(197, 182, 245);
+  padding: 2%;
+  width: 102%;
+  font-size: 18px;
+}
+
+#budget-and-amount {
+  margin-left: 12%;
+}
+
+.transaction {
+    font-size: 17px;
+    height: 20%;
+    width: 100%;
+    padding: 2% 0;
+    border-bottom:#333 2px solid;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.transaction p {
+  padding: 0 10%;
+}
+
+.transaction-amount {
+  color: #23915a;
+}
+
+.action {
+  color: rgb(91, 72, 139);
+}
+  
+  #category-section {
+    margin-top: 20px;
+    color: black;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 3px;
+    font-family:Gravitica;
+  }
+
+  #transaction-list-bottom {
+    border-bottom: none;
+  }
+
+  .category-overview {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    justify-content: space-around;
+    background-color: #a2d2ff;
+    border: solid 1px #a2d2ff;
+    width: 300px;
+    border-radius: 2px;
+    height: 120px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 3px 0px #87b4de inset;
+    color: white;
+  }
+  
+  .category-view {
+    height: 90px;
+    width: 300px;
+    background-color: #2b86dc;
+    border-radius: 2px 2px .5px .5px;
+    box-shadow: inset 0 0 3px 2px #4373a0; 
+  }
+
+  .category-view label {
+    color: black;
+  }
+  
+  .percentage-bar {
+    height: 40px;
+    border: 2px solid black;
+    /* background-color: yellow; */
+    width: 50%;
+    height: 10px;
+    margin-left: 20px;
+    border-radius: 0px;
+  }
+
+  .percentage {
+    background-color: yellow;
+    width: 0;
+    height: 100%;
+  }
+
+  .percent-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 1%;
+    color: black;
+  }
+  
+  /* .category-overview2 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #a2d2ff;
+    border: solid 0px #a2d2ff;
+    width: 150px;
+    border-radius: 5px;
+    height: 120px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    box-shadow: 1px 1px 6px 2px darkblue inset;
+  } */
+  
+  
+  .categories-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+/* End of New Home/Index design by Bon -------- 
+----------------------------------------*/
+
+/* alert */
+
+#alert-box {
+  background-color: rgb(221, 176, 255);
+  height: 50px;
+  width: 300px; 
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 10;
+  position: fixed;
+  left: 30px;
+}
+
+#liveAlertPlaceholder div {
+  transition-timing-function: ease-out;
+}
+
+
+
+/* Side Menu ----------------
+--------------------------------*/
+#menu-expand {
+    overflow-x: hidden;
+    height: 100%;
+    width: 0;
+    background-color: #0e6683;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+}
+#menu-expand a {
+    text-decoration: none;
+    padding: 10px 15px;
+    color: white;
+    display: block;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-left: 30px;
+    transition: 0.5s;
+}
+#side-menu-close {
+    align-self: flex-end;
+}
+#menu-expand a:hover {
+    background-color: rgb(93, 135, 93);
+    border-radius: 35px;
+}
+.bar {
+    width: 30px;
+    height: 5px;
+    background-color: black;
+    border-radius: 5px;
+    margin: 2px;
+    cursor: pointer;
+}
+/* End of Side Menu --------
+--------------------------------*/
+
+
+
+/* Categories Page ------------
+--------------------------------*/
+#categories-title {
+    text-align: center;
+    margin-left: 5%;
+    padding-top: 15px;
+    /* background-color: rgb(232, 255, 238); */
+    height: 80px;
+    width: 90%;
+    z-index: 0;
+    margin-top: 0;
+    /* box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1); */
+    /* background: linear-gradient(240deg, rgb(232, 255, 238) 90%, #e1F5ff 10%); */
+}
+
+#edit-categories {
+    display: flex;
+    justify-content: end;
+    width: 89%;
+}
+
+.categorylist-container {
+    border-bottom: .25px rgba(184, 184, 184, 0.6) solid;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    padding-top: 0;
+}
+.category-container {
+    margin: 0;
+    padding: 0;
+}
+#category-list {
+    margin-top: 20px;
+    width: 95vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin-left: 2.5%; */
+    z-index: 0;
+}
+
+.category {
+    background-color:rgb(255, 252, 241);
+    background-color: rgb(201, 201, 100);
+    background-color: white;
+    height: 110px;
+    width: 95vw;
+    border-radius: 33px;
+    box-shadow: 1px 1px 5px rgb(189, 212, 217);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 0;
+    margin-bottom: 0;
+    transition: .6s;
+    cursor: pointer;
+}
+
+.category-link {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+}
+
+.left-side {
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.name-date {
+    margin-left: 25px;
+    color: black;
+}
+
+.category-name {
+    text-align: start;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(88, 54, 174);
+    font-family:Gravitica;
+}
+
+.category-budget {
+    margin-right: 20px;
+    /* color: rgb(45, 147, 89); */
+    color: #118C4F;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.category-clicked {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1), 0px -10px 15px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+}
+
+.budget-dropdown {
+    z-index: 1;
+    overflow-y: hidden;
+    position: absolute;
+    background-color: rgb(244, 244, 244);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 0;
+    /* width: 83%; */
+    width: 68%;
+    box-shadow: 5px 15px 10px rgba(0, 0, 0, 0.1), -5px 0 10px rgba(0, 0, 0, 0.1);
+    transition: .6s;
+    overflow-x: hidden;
+}
+
+.budget-item {
+    display: flex;
+    width: 75%;
+    justify-content: space-between;
+    border-bottom: .25px rgba(184, 184, 184, 0.6) solid;
+    padding-bottom: 1%;
+}
+
+.budget-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.budget-link {
+  width: 100%;
+  height: 110%;
+}
+
+.budget-name {
+  color: rgb(88, 54, 174);
+}
+
+.budget-amount {
+  color: #118C4F;
+}
+
+.recurring {
+  color: black;
+}
+
+.budget-item a {
+    padding: 10px;
+}
+
+.budget-item a:hover {
+    background-color: rgb(191, 250, 187);
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px rgb(131, 131, 131);
+    transition: 0.1s;
+}
+
+.dropdown-container {
+    display: flex;
+    justify-content: center;
+}
+.dropdown-display {
+    overflow-x: visible;
+}
+
+.budget-dropdown-header {
+    color: #118C4F;
+    color: black;
+}
+
+.category-btns {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+}
+
+.cat-btns-div {
+    overflow: hidden;
+    height: 0;
+    transition: 0.3s;
+    
+}
+
+.btn-danger {
+    background-color: rgb(221, 55, 55);
+    color: white;
+    width: 50%;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
+    transition: 0.2s;
+}
+
+.btn-danger-form {
+    width: 75%;
+}
+
+.btn-secondary {
+    width: 50%;
+    color: white;
+    background-color: rgb(80 119 80);
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
+    transition: 0.2s;
+}
+
+/* category edit popup*/
+
+.category-edit-popup {
+    position: fixed;
+    bottom: 10%;
+    z-index: 999;
+    width: 90vw;
+    height: 75vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: calc(7% - 20px) calc(10% - 20px) calc(10% - 20px) calc(10% - 20px);
+    background-color: rgb(235, 255, 255);
+    display: none;
+    border-radius: 10px;
+    box-shadow:5px 5px 15px 5px rgb(114, 113, 113); 
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.category-edit-popup::-webkit-scrollbar {
+    display: none;
+}
+
+
+.category-edit-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(59, 62, 62, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+.category-edit-popup h4 {
+    grid-column: 1 / 4;
+    text-align: center;
+    font-size: 20px;
+}
+
+.category-edit-popup h5 {
+    font-size: 16px;
+    grid-column: 1 / 2;
+}
+
+.category-edit-popup label {
+    grid-column: 1 / 2;
+}
+
+.rename-category-btn {
+    color: white;
+    width: 30%;
+    margin-left: 2%;
+    background-color: rgb(96, 96, 96);
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+.rename-category-input {
+    width: 75%;
+}
+
+.category-edit-popup form {
+    grid-column: 1 / 4;
+    height: 60%;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 1;
+}
+
+/* .category-edit-popup div form {
+    grid-column: 1 / 4;
+    height: 75%;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 1;
+} */
+
+.category-edit-popup div > form {
+    margin-right: 2%;
+}
+
+.edit-budget-forms {
+    grid-column: 1 / 4;
+    display: flex;
+}
+
+.edit-budget-forms form {
+   display: grid;
+   grid-template-columns: 50% 50%;
+   height: 60%;
+}
+
+.edit-budget-forms form input[value="Update"] {
+    background-color:rgb(78, 126, 82);
+    color: white;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+ }
+
+ .edit-budget-forms form input[value="Rename"] {
+    background-color: rgb(96, 96, 96);
+    color: white;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+ }
+
+ .edit-budget-btn {
+    /* width: 40%;
+    height: 40%; */
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.edit-budget-input {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+}
+
+.remove-budget {
+    font-size: 12px;
+    height: 70%;
+    width: 30%;
+    padding: 1px;
+    background-color: #ca3a30;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    grid-column: 1 / 2;
+    cursor: pointer;
+} 
+
+.remove-budget-form {
+    border-bottom: 1px grey solid;
+}
+
+.category-edit-clicked {
+    display: block;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: 5% 10% 6% 10% 10%;
+    grid-auto-rows: 6% 20% 15%;
+}
+
+/*Are you sure? category deletion popup */
+
+.category-delete-popup {
+    position: fixed;
+    bottom: 35%;
+    z-index: 999;
+    width: 90vw;
+    height: 60vh;
+    padding: calc(5% - 20px);
+    background-color: white;
+    display: none;
+    padding-top: 10%;
+}
+
+.btn-danger-div {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.delete-category-2nd {
+    width: 100%;
+}
+
+.btn-cancel-div {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: 10% 0;
+}
+
+.category-delete-clicked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.category-delete-clicked h3, .category-delete-clicked h4 {
+    text-align: center;
+}
+
+.cancel-btn {
+    color: grey;
+    height: 100%;
+}
+
+.cancel-form {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* End of Categories Page --------
+----------------------------------------*/
+
+
+/* Expenses page 
+--------------------------------*/
+.bt_container-grid {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.bt_container {
+  width: 1000px;
+  max-width: 100%;
+  text-align: center;
+  padding: 40px;
+  position: relative;
+  margin: 0 auto; /* This centers the block-level container */
+}
+.bt_category-title,
+.bt_budget-name {
+  font-size: 2em;
+  font-weight: bold;
+  color: rgb(88, 54, 174);
+  font-family:Gravitica;
+}
+
+.bt_budget, .bt_expense {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  font-size: 1.2em;
+  margin-top: 50px;
+  padding-bottom: 15px;
+  
+}
+
+.bt_budget {
+  color: #118C4F;
+}
+
+.bt_expense {
+  font-size: 1em;
+  padding-bottom: 20px;
+}
+
+.bt_date {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid black;
+  width: 100%; /* This will allow the hr to take up the full width of its container */
+  margin: 0 auto; /* This centers the hr within its container */
+}
+
+.clear-expenses-button {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  padding: 10px;
+}
+
+@media (max-width: 600px) {
+  .bt_container {
+    width: 100%;
+  }
+  .bt_category-title,
+  .bt_budget-name {
+    text-align: left;
+  }
+  .bt_budget, .bt_expense {
+    grid-template-columns: repeat(1, 1fr);
+    text-align: left;
+    justify-items: start; /* Aligns the items to the start (left) in mobile view */
+  }
+  .clear-expenses-button {
+    top: 25px;
+    right: 10px;
+    padding: 5px;
+    font-size: 0.8em;
+  }
+}
+@media screen and (max-width: 768px) {
+  .date-added {
+    display: none;
+  }
+}
+
+
+/*---- End of Expense Page--------
+--------------------------------*/
+
+
+/*login page 
+--------------------------------*/
+#login-logo {
+/* height: 30vh; */
+margin-top: 50px;
+margin-bottom: 40px;
+display: flex;
+align-items: center;
+flex-direction: column;
+background-color: transparent;
+}
+
+
+#login-info, #register-info {
+display: flex;
+flex-direction: column;
+align-items: center;
+height: 12vh;
+justify-content: space-around;
+}
+
+#login-container, #register-container{
+/* width: 100%; */
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+#register-info {
+    height: 100%;
+}
+
+#register-info input {
+    margin-top: 10px;
+}
+
+/* #login-h1, #register-h1 {
+/* margin-right: 3%;
+margin-bottom: 5%; 
+} */
+
+
+#login-settings {
+display: flex;
+flex-direction: column;
+width: 100%;
+height: 70px;
+align-items: center;
+justify-content: space-between;
+}
+
+#remember-me {
+width: 30px;
+transform: scale(2);
+}
+
+#remember-label {
+font-size: 20px;
+}
+
+#forgot-password {
+color: blue;
+font-size: 18px;
+}
+
+#login-link {
+width: 100%;
+display: flex;
+justify-content: center;
+margin-right: 10%;
+}
+
+
+#login-button {
+font-size: 18px;
+font-weight: bold;
+margin-top: 20px;
+/* background-color: #ed344c; */
+background-color: #118C4F;
+border-radius: 5px;
+margin-left: 7%;
+width: calc(60vw + 30px);
+box-shadow: 1px 7px 6px rgba(0, 0, 0, 0.1);
+}
+
+button {
+border: 0;
+line-height: 3;
+color: #fff;
+padding: 0 15px;
+background-color: #375f68;
+/* background-color:rgb(89, 147, 114); */
+border-radius: 10px;
+/* box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6); */
+}
+
+button:hover {
+  /* background-color: #2b444a; */
+  box-shadow: 2px 2px 5px rgb(147, 146, 146);
+}
+
+#login-register, #login-register-btn {
+display: flex;
+margin-top: 30px;
+justify-content: center;
+}
+
+#login-register-btn {
+  justify-content: space-between;
+  width: 15rem;
+}
+
+.login-tab {
+    width: 88px;
+    background-color: white;
+    color: rgb(131, 131, 131);
+    border-radius: 5px;
+}
+
+.active {
+  background-color: rgb(167, 223, 255);
+  color: rgb(19, 68, 152);
+}
+
+
+#login-register li {
+margin: 0 20px;
+width: 100px;
+border: none;
+background-color: rgb(248, 247, 247);
+}
+
+#login-register li a {
+width: 100%;
+color: rgb(131, 131, 131);
+text-align: center;
+font-family: sans-serif;
+font-weight: bold;
+}
+
+
+/* End of Log In Page --------
+--------------------------------*/
+
+/* Mobile-first account page */
+
+
+/* End of mobile-first account page */
+
+/* Mobile-first styles ------------
+----------------------------------------*/
+#budget-container, #expense-container, #category-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+/* Media queries for larger screens */
+@media screen and (min-width: 768px) {
+    #budget-container, #expense-container, #category-container {
+        width: calc(66.66% - 20px);
+        height: 120%;
+        margin-bottom: 30px;
+    }
+    h1 {
+        font-size: 45px;
+        margin-left: 50px ;
+    }
+
+    .view-section {
+      width: 80%;
+      margin-top: 40px;
+      background-color: white;
+      border-radius: 20px;
+  }
+
+
+    /* Category Page 
+    ------------------------------*/
+    #category-list {
+        align-items: center;
+    }
+    .categorylist-container {
+        border-bottom: .25px rgba(184, 184, 184, 0.6) solid;
+        padding: 4px;
+        margin: 1px;
+    }
+    .category {
+        height: 100px;
+        width: 75vw;
+        border-radius: 10px;
+        margin: 0;
+        font-size: 10px;
+    }
+    .name-date {
+        margin-left: 12%;
+    }
+    .name-date > h4 {
+        font-size: 2.5em;
+        margin-bottom: 5%;
+    }
+    .name-date > p {
+        font-size: 1.5em;
+    }
+    .category-budget {
+        margin-right: 10%;
+        font-size: 2em;
+    }
+    .budget-item {
+        font-size: 1.5em;
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        border-bottom: .25px rgba(184, 184, 184, 0.6) solid;
+    }
+    
+    .budget-div {
+      font-size: 16px;
+    }
+
+    .category-edit-popup {
+        width: 50vw;
+    }
+
+    .left-side {
+      width: 100%;
+    }
+
+
+    /* End of Category Page*/
+    }
+@media screen and (max-width: 767px) {
+    .h1 {
+        font-size: smaller;
+    }
+
+}
+/* End of Mobile-First Design CSS
+---------------------------------------*/
+
+
+/* Transfer Page ----------------
+------------------------------------*/
+
+/* Ends of Transfer Page ----------------
+------------------------------------*/
+
+/* Home page desktop design */
+@media screen and (min-width: 768px) {
+    body,html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  
+    h1 {
+      text-align: center;
+    }
+
+    .bar {
+        /* width: 25px;
+        height: 5px;
+        margin: 2px;
+        margin-left: 40px;
+        cursor: pointer; */
+    }
+    
+    /* .menu-btn {
+        width: 20px;
+        height: 5px;
+        margin: 2px;
+        margin-left: 30px;
+    } */
+
+    .subtitle {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      gap: 400px;
+      font-weight: bolder;
+    }
+  
+    #subheadings {
+      margin-left: 39%;
+      font-size: 25px;
+      text-align: center;
+      gap: 50px;
+    }
+  
+    #account-icon {
+      position: absolute;
+      margin-left: 95%;
+      margin-bottom: -10px;
+    }
+    
+    #home-icon {
+      position: absolute;
+      margin-left: 20px;
+      margin-top: 0px;
+    }
+  
+  
+    .summary {
+      /* padding-left: 80px; */
+      margin-bottom: 10px;
+      font-size: 30px;
+      margin-top: 60px;
+      text-align: start;
+    }
+  
+    hr {
+      width: 90%;
+      margin-bottom: 30px;
+      margin-left: 45px;
+    }
+  
+    .first-h4 {
+      font-size: 25px;
+      height: 40px;
+      width: 90px;
+      border-radius: 10px;
+      margin-top: 40px;
+      margin-left: 40px;
+      text-align: center;
+    }
+
+    .expenses-section {
+        height: 100px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin-left: 5%;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
+    
+    #transaction {
+      font-size: 25px;
+      width: 240px;
+      height: 55px;
+      padding-top: 5px;
+      margin-left: 80px;
+      border-radius: 10px;
+      color: black;
+    }
+  
+    .transaction-section {
+      margin-left: 2.5%;
+      margin-bottom: 25px;
+      border-radius: 10px;
+    }
+
+
+    .transaction {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .transaction p {
+      text-align: center;
+    }
+
+    #category-section {
+      font-size: 25px;
+      width: 240px;
+      height: 60px;
+      border-radius: 10px;
+      margin-left: 80px;
+      padding-top: 10px;
+      margin-top: 10%;
+    }
+  
+    .categories-container {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      width: 100%;
+      margin-top: 15px;
+    }
+  
+    .category-overview {
+      width: 75%;
+      height: 15vw;
+      margin-left: 10%;
+      margin-top: 10%;
+      display: block;
+    }
+    
+    .category-view {
+      height: 80%;
+      width: 100%; 
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    .view-section h3 {
+        font-size: 1.8em;
+    }
+
+    .view-section h5 {
+        font-size: 1em;
+    }
+  
+    .expenses-section h4 {
+      font-size: 30px;
+    }
+
+    #summary-icon {
+        width: 5vw;
+        height: 5vw;
+    }
+
+    hr {
+        margin-top: 40px;
+    }
+
+    #transaction-list {
+        margin-left: 0;
+    }
+
+    .budget-dropdown-header {
+        margin-top: 25px;
+    }
+
+    .subtitle-icons {
+      height: 15vw;
+    }
+
+    #add-budget {
+      width: 20%;
+    }
+
+    #add-expense {
+      width: 20%;
+    }
+
+    #add-category {
+      width: 20%;
+    }
+
+    .home-icon-row {
+      width: 80%;
+      height: 60%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+}
+/* End of home page desktop design */
+
+@media (min-width: 931px) {
+
+    .view-section h3 {
+        margin-bottom: 5%;
+    }
+
+    .view-section h5 {
+        font-size: 1.25em;
+    }
+
+    .percent-label {
+        margin-top: 2%;
+    }
+
+}

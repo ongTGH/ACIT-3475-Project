@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+{% block title %}ExpendAware - Home{% endblock %}
+{% block content %}
+
+<div class="home-icon-row">
+  <button class="subtitle-icons" id="add-budget"><h3 class = add-text>Add</h3><h3>Budget</h3></button>
+  <button class="subtitle-icons" id="add-expense"><h3 class = add-text>Add</h3><h3>Expense</h3></button>
+  <button class="subtitle-icons" id="add-category"><h3 class = add-text>Add</h3><h3>Category</h3></button>
+</div>
+
+
+<div id="liveAlertPlaceholder"></div>
+
+<div class="view-section">
+  <div id="total">
+      <h3 class="summary">Summary <img src="../static/images/summary-circle-icon.png" width="45" height="45" id="summary-icon"></h3>
+      <hr />
+  </div>
+      
+  <h4 class="first-h4" id="total-heading">Total</h4>
+  
+  <div class="expenses-section" id="totals">     
+      <h4>Total Budget: ${{ total_budget }}</h4>
+      <h4>Total Expenses: ${{ total_expenses }}</h4>
+  </div>
+
+  <div id="transaction">
+      <h4>Latest Transaction</h4>
+  </div>      
+  
+  <div class="transaction-section">
+    <ul id="transaction-list">
+      <li id="latest-transaction-heading" class="transaction"><p>Transaction</p><p id="budget-and-amount">Budget & Amount</p><p>Date</p><p>Description</p></li>
+      {% if history | length > 0 %}
+      {% for action in history %}
+      {% if loop.index0 != history | length - 1 %}
+      <li class="transaction"> <p class="action">{{ action['action'] }}</p><p class="transaction-amount"> {{ action['name'] }} - ${{ action['amount'] }} </p><p> {{ action['date'] }} </p><p> {{ action['description'] }}</p></li>
+      {% elif history[history | length - 1] == action %}
+      <li class="transaction" id="transaction-list-bottom"> <p class="action">{{ action['action'] }} </p><p class="transaction-amount"> {{ action['name'] }} - ${{ action['amount'] }} </p><p> {{ action['date'] }} </p><p> {{ action['description'] }}</p></li>
+      {% endif %}
+      {% endfor %}
+      {% else %}
+      <p>No transactions yet</p>
+      {% endif %}
+    </ul>
+  </div>
+
+  <div>
+      <h4 id="category-section">Category Overview</h4>
+  </div>
+ 
+  <div class="categories-container">
+    {% for category in categories %}
+      <div class="category-overview">    
+          <div class="category-view">
+            <h3>{{ category['category'] }}</h3>
+            <h5>Total Budget: ${{ category['total budget'] }}</h5>
+            <h5>Total Expenses: ${{ category['total expenses'] }}</h5>
+              
+          </div>
+          <div class="percent-label">
+            {% if category['total budget'] != 0 %}
+            <label class="calculated-percent"> {{ '%0.0f' | format((category['total expenses'] / category['total budget']) * 100) | int}}% Spent</label>
+            <div class="percentage-bar"><div class="percentage"></div></div>
+            {% else %}
+            <label>No budgets yet</label>
+            {% endif %}
+            </div>
+      </div>
+      {% endfor %}
+    </div>
+</div>
+
+
+<div class="container">
+  <div id="budget-container">
+    <h2 class="add-type">Budget</h2>
+    <form method="POST" id="budget-form" name="add-budget-form">
+      <div class="form-group">
+        <input
+          type="text"
+          id="budget-name"
+          placeholder="Budget name"
+          name="name"
+          class="text"
+        />
+        <input
+          type="number"
+          id="budget-amount"
+          placeholder="Amount"
+          name="amount"
+          min="0"
+          class="number"
+        />
+      </div>
+      <label>Choose a category</label>
+      <select id="budget-category" name="category">
+        {% for category in categories %}
+        <option value="{{ category.category }}">
+          {{ category.category }}
+        </option>
+        {% endfor %}
+      </select>
+      <label>Choose a recurring period</label>
+      <select id="recurring-budget-select" name="recurring budget">
+        <option>None</option>
+        <option>Daily</option>
+        <option>Weekly</option>
+        <option>Bi-Weekly</option>
+        <option>Monthly</option>
+        <option>Yearly</option>
+      </select>
+      <button type="submit">Add Budget</button>
+    </form>
+  </div>
+
+  <div id="expense-container">
+    <h2 class="add-type">Expense</h2>
+    <form method="POST" id="expense-form" name="add-expense-form">
+      <div class="form-group">
+        <input
+          type="text"
+          id="expense-description"
+          placeholder="Description"
+          name="descr"
+          class="text"
+        />
+        <input
+          type="number"
+          id="expense-amount"
+          placeholder="Amount"
+          name="amount"
+          min="0"
+          class="number"
+        />
+      </div>
+      <label>Choose a category</label>
+      <select id="expense-category" name="category">
+        {% for category in categories %}
+        <option value="{{ category.category }}">
+          {{ category.category }}
+        </option>
+        {% endfor %}
+      </select>
+  
+      <!-- New budget selection dropdown -->
+      <label>Choose a budget</label>
+      <select id="expense-budget" name="budget">
+        {% for budget in budgets %}
+        <option value="{{ budget.name }}" data-category="{{ budget.category }}">
+          {{ budget.name }}
+        </option>
+        {% endfor %}
+      </select>
+  
+      <button type="submit">Add Expense</button>
+    </form>
+  </div>
+
+  <div id="category-container">
+    <h2 class="add-type">Category</h2>
+    <form method="POST" id="category-form" name="add-category-form">
+      <div class="form-group">
+        <input
+          type="text"
+          id="category-name"
+          placeholder="Category name"
+          name="category"
+          class="text"
+        />
+      </div>
+      <button type="submit">Add Category</button>
+    </form>
+    <ul id="added-category-list">
+    </ul>
+  </div>
+</div>
+
+<ul class="hidden-lists">
+  {% for category in categories %}
+  <li class="category-name">{{ category["category"] }}</li>
+  {% endfor %}
+</ul>
+
+<ul class="hidden-lists">
+  {% for budget in budgets %}
+  <li class="budget-name">{{ budget["name"] }}</li>
+  {% endfor %}
+</ul>
+
+<ul class="hidden-lists">
+  {% for budget in budgets %}
+  <li class="budget-amount">
+    <p class="totals-budget-name">{{ budget["name"] }}</p>
+    <p class="totals-budget-amount">{{ budget["amount"] }}</p>
+    {% for expense in expenses %}
+    {% if expense["budget"] == budget["name"] %}
+    <p class="totals-expense-amount">{{ expense["amount"] }}
+    {% endif %}
+    {% endfor %}
+  </li>
+  {% endfor %}
+</ul>
+
+
+<footer>
+</footer>
+
+{% endblock %}
+
+{% block script %}
+  <script src="/static/javascript/home.js"></script>
+{% endblock%}

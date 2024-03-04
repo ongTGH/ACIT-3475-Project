@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e1F5ff;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+}
+
+input, select {
+    padding: 10px;
+    margin: 5px 0 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button {
+    border: 0;
+    line-height: 3;
+    color: #fff;
+}
+
+#outline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: rgb(131, 131, 131, 0.5) 2px solid;
+    margin: 30px 0;
+    width: 450px;
+}
+
+#login-logo {
+    margin: 40px 0 0;
+    border-radius: 20%;
+}
+
+
+
+/* Tab Design */
+.login-tab {
+    width: 88px;
+    background-color: white;
+    color: rgb(131, 131, 131);
+    border-radius: 3px;
+    min-width: 80px;
+    margin: 30px 35px;
+}
+
+.active {
+    background-color: rgb(167, 223, 255);
+    color: rgb(19, 68, 152);
+}
+/* End of Tab Design*/
+
+
+
+/* Login & Register Form */
+.info-to-fill {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50vw;
+    max-width: 300px;
+}
+
+.info-title {
+    align-self: center;
+}
+
+#login-btn, #reg-btn, #fgt-btn, #fgt-exit-btn {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 10px;
+    /* background-color: #ed344c; */
+    background-color: #118C4F;
+    border-radius: 5px;
+    width: 15vw;
+    min-width: 100px;
+    box-shadow: 1px 7px 6px rgba(0, 0, 0, 0.1);
+    align-self: center;
+}
+
+#rmb-me {
+    width: 30px;
+    transform: scale(1.5);
+    margin-top: 20px;
+}
+
+#login-fgt-link {
+    color: blue;
+    font-size: 18px;
+    align-self: center;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+/* End of Login & Register Form */
+
+
+
+/* Alert Message for Login */
+#flash-messages {
+    opacity: 0;
+    transition: opacity 4s ease-in-out;
+    background-color: lightcoral;
+    width: 230px;
+    text-align: center;
+    border-radius: 5px;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#flash-messages.show {
+    opacity: 0.8;
+}
+/* End of Alert Message for Login */
+
+
+
+/* Alert Message for Register */
+#reg-overlay, #fgt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#reg-alert-box {
+    position: fixed;
+    left: 50%;
+    background-color: #e2c7c7;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 23px;
+    text-align: center;
+    display: flex;
+}
+
+#reg-alert-exit-btn {
+    color: black;
+    text-decoration: none;
+    line-height: normal;
+    border: black 1px solid;
+    padding: 0 9px;
+    font-size: 23px;
+    border-radius: 5px;
+    align-self: flex-start;
+    margin-left: 10px;
+}
+/* Alert Message for Register */
+
+
+/* Forgot password */
+#fgt-box {
+    display: flex;
+    border: solid 2px rgb(131, 131, 131, 0.5);
+    margin-bottom: 30px;
+
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    background-color: #e2c7c7;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 23px;
+    text-align: center;
+
+    display: flex;
+    /* flex-direction: column; */
+}
+
+/* #fgt-box {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+} */
+
+#fgt-exit-btn {
+    /* align-self: flex-start;
+    padding: 0 10px;
+    margin-left: 10px;
+    margin-right: -10px;
+    background-color: #333;
+    border-radius: 3px; */
+    background-color: #333;
+
+}
+
+#fgt-security-box, #fgt-pwd-box {
+    display: none;
+}
+
+#fgt-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+#fgt-btn-box {
+    display: flex;
+    justify-content: space-around;
+}
+/* End of Forgot Password */
+
+#fgt-pwd-error, #fgt-security-error, #fgt-email-error {
+    color: green;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
