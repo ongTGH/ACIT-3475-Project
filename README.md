@@ -40,3 +40,4 @@ pytest test_main.py
 command prompt or run python main.py (with an active virtual environment)
 8. Navigate to the local server address displayed (usually http://127.0.0.1:5000/)
 in a web browser to use the application
+# ACIT-3475-Project
